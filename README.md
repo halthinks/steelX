@@ -2,7 +2,7 @@
 
 [![Watch the Steel launch video](assets/launch-poster.jpg)](assets/launch.mp4)
 
-Steel is Skild's physics solver for scalable simulation of manipulation, built with NVIDIA and open-sourced as part of Newton. It runs simulations up to 10× faster than PhysX while using less GPU memory.
+Steel is Skild's physics solver for scalable simulation of manipulation, built with NVIDIA and open-sourced as part of Newton. Across 20 robot-learning benchmarks it delivers 3.8× PhysX's simulation throughput (geometric mean), and up to 13× on heterogeneous batches that mix different robots and tasks, while using less GPU memory.
 
 We are actively accepting contributions from you and your agents, and are committed to maintaining Steel as a shared foundation for diverse, scalable simulation.
 
@@ -13,7 +13,6 @@ We are actively accepting contributions from you and your agents, and are commit
 ## Code and demos
 
 - [Steel in Newton](https://github.com/newton-physics/newton/tree/main/newton/_src/solvers/steel) — the solver implementation.
-- [WebGPU implementation](https://skild-ai.ghe.com/skild-ai/steel-webgpu) — the browser implementation.
 - [Playground](https://www.skild.ai/steel/playground) — interactive demos.
 - [Blog](https://www.skild.ai/steel) — the launch write-up.
 
