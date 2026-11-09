@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-11-09",
+  "purpose": "Discovered upstream external asset sources. This is NOT a redistribution approval or an imported asset manifest.",
+  "asset_sources": [
+    {
+      "id": "newton-assets",
+      "repository": "https://github.com/newton-physics/newton-assets",
+      "commit": "f8fb7abcbeba2318814a74f3eeb02780ad7925d6",
+      "upstream_pointer": "newton/_src/utils/download_assets.py",
+      "license_review": "pending per-directory source/asset check",
+      "import_policy": "only assets required by supported examples/features, with their individual license and attribution"
+    },
+    {
+      "id": "mujoco-menagerie",
+      "repository": "https://github.com/google-deepmind/mujoco_menagerie",
+      "commit": "da76818e269b82289eba39808e2fb91d679d6994",
+      "upstream_pointer": "newton/_src/utils/download_assets.py",
+      "license_review": "pending model-by-model review; repository has heterogeneous model licenses",
+      "import_policy": "only reviewed models required by supported examples/features; preserve each model LICENSE"
+    }
+  ]
+}
