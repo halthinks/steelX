@@ -12,6 +12,8 @@ The defining product requirement is a **fully vendored, properly licensed, fully
 - [x] Identify Newton's pinned external asset repositories (`vendor/asset-sources.lock.json`); review of individual asset licenses remains open.
 - [x] Implement source-import transactionality, pinned-lock/path validation, manifest-tamper detection, and LFS/submodule rejection with hermetic tests (13 pass). Does not claim sources imported or offline execution.
 - [x] Resolve the business-mode distinction: offline *engine execution* is mandatory for the served-only TextPCB operator fleet; an optional customer-installable private edition needs a separate commercial/IP decision.
+- [x] Trace the pinned CPU fallback and WebGPU data-loader/worker source; record concrete supported modes, downloader entry points, package/build dependencies and asset licenses in [`docs/SOURCE_AUDIT_2026-11-09.md`](docs/SOURCE_AUDIT_2026-11-09.md). This is a **bounded initial audit**, not Gate A completion.
+- [x] Implement a dependency-free WebGPU scene byte decoder with SHA-256 checking and root-confined relative asset references; 9 Node tests pass without network. Does not yet modify the upstream GPU or viewer code.
 - [ ] Trace SolverSteel public API, dynamics, memory management, collisions, contacts, constraints, joints, actuation, determinism and numerical algorithms to the actual implementation and tests.
 - [ ] Audit WebGPU feature parity, unsupported model features, precision limits, file/URL loaders, shaders, browser capabilities and renderer/runtime coupling.
 - [ ] Review Newton/Warp Python/native build graph and exact JavaScript transitive dependency graph, not only declared top-level dependencies.
@@ -28,6 +30,7 @@ Gate **A**: code-level dependency diagram, reproducible benchmark protocol, issu
 - [ ] Produce locked, licensed, per-target Python wheelhouses and JS package/build-tool bundles; eliminate network-backed installers and implicit downloads.
 - [ ] Provide deterministic CPU runtime, NVIDIA GPU runtime, and in-browser WebGPU runtime as separate locally installable targets, with common model/result semantics wherever physics implementations permit.
 - [ ] Resolve all supported local model/asset imports without remote URI fetches; reject missing/out-of-root assets safely.
+- [ ] Feed the byte-decoded scenes into the **actual vendored WebGPU `Sim`** and replace both main-thread and worker viewer fetch paths; inject offline mesh resolvers into URDF and MJCF importers.
 - [ ] Define stable data interchange for model, controls, state, time step, diagnostics, contact and provenance metadata.
 - [ ] Add CLI/API and offline interactive viewer, with actual verified simulation examples and saved/replayable results.
 - [ ] Validate native and browser parity to documented tolerances. Track unsupported physics explicitly rather than silently approximating it.
@@ -50,7 +53,7 @@ Gate **C**: every supported integration works end-to-end offline and is demonstr
 
 ## Immediate working queue
 
-1. Audit exact numerical solver and browser API against source and tests.
+1. Finish exact numerical solver and browser API audit; the initial pinned-source inspection and one offline scene decoding component are documented.
 2. Complete dependency and license inventory, resolving redistributability individually.
 3. Import and verify pinned upstream source trees (vendor importer/validator provided).
 4. Design and produce first CPU-only offline release bundle, then GPU and browser bundles.
