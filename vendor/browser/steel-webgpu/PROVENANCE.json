@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/skild-ai/steel-webgpu",
+  "commit": "f2f72c1e99aea7192cf2366eb918e630135afcf9",
+  "license": "Apache-2.0",
+  "scope": "engine-only JavaScript source slice (not a whole upstream checkout or a full release)",
+  "sources": [
+    {
+      "path": "src/artwgsl.js",
+      "upstream_path": "packages/steel-webgpu/src/artwgsl.js",
+      "git_blob_sha1": "3d7fc9de24b86fb658b473894d99a37670fe0973",
+      "sha256": "31a261b3f930d0ef1a77edc971509fb58a6db65f67c255823844880b80ba96bb"
+    },
+    {
+      "path": "src/builder.js",
+      "upstream_path": "packages/steel-webgpu/src/builder.js",
+      "git_blob_sha1": "389254ab82213f627863d6ca91745a913a9f41aa",
+      "sha256": "ee8c11468f99de50c09a8477c389eb93d06dc2c11b14671b35cdf054604eddd0"
+    },
+    {
+      "path": "src/device.js",
+      "upstream_path": "packages/steel-webgpu/src/device.js",
+      "git_blob_sha1": "ffbc67c4e3b82b34d98daaadd28e55e4792dc7ad",
+      "sha256": "cfdb49f043eddaee11f8c495b4e8ddf4a550e2ec4e448afb0f62ba6b9a52fc66"
+    },
+    {
+      "path": "src/loaders.js",
+      "upstream_path": "packages/steel-webgpu/src/loaders.js",
+      "git_blob_sha1": "f7490e824537a6a641640543525bd3435ab27183",
+      "sha256": "c0add5a012495ff6d926445ea783d39591e52eb74c6d3c0ac3a549813acaed4a"
+    },
+    {
+      "path": "src/sim.js",
+      "upstream_path": "packages/steel-webgpu/src/sim.js",
+      "git_blob_sha1": "d5ee5b7adc157007f5612caec38b786993b56c8b",
+      "sha256": "2d49045c0bff63371979e5f8f29390ba56ef9b627ed1679481bcdcc7a71e096c"
+    },
+    {
+      "path": "src/wgsl.js",
+      "upstream_path": "packages/steel-webgpu/src/wgsl.js",
+      "git_blob_sha1": "7e53fbf232897ed03b8f372b50cfcaa0869e0a52",
+      "sha256": "7ba2c482593d1913b541747f63bd6154ccce56cc3c26119123408d06fd93c085"
+    },
+    {
+      "path": "LICENSE.md",
+      "upstream_path": "packages/steel-webgpu/LICENSE.md",
+      "git_blob_sha1": "577fac3288d22282c16a6520a134c3573fb7a76b",
+      "sha256": "3e5178e6e68fac6252f967b95401d5b13d6157a10e59325e7a7173372a9fa87f"
+    },
+    {
+      "path": "UPSTREAM_ROOT_LICENSE.md",
+      "upstream_path": "LICENSE.md",
+      "git_blob_sha1": "cdeb75ab219ddcba1e5aec2a81d9c0f45f43f929",
+      "sha256": "c29e1e15a4bb6bbf25406f16c13d0b7e990514a5807b9c89b01ea2d19ecd0d94"
+    }
+  ]
+}

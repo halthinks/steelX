@@ -13,7 +13,8 @@ The defining product requirement is a **fully vendored, properly licensed, fully
 - [x] Implement source-import transactionality, pinned-lock/path validation, manifest-tamper detection, and LFS/submodule rejection with hermetic tests (13 pass). Does not claim sources imported or offline execution.
 - [x] Resolve the business-mode distinction: offline *engine execution* is mandatory for the served-only TextPCB operator fleet; an optional customer-installable private edition needs a separate commercial/IP decision.
 - [x] Trace the pinned CPU fallback and WebGPU data-loader/worker source; record concrete supported modes, downloader entry points, package/build dependencies and asset licenses in [`docs/SOURCE_AUDIT_2026-11-09.md`](docs/SOURCE_AUDIT_2026-11-09.md). This is a **bounded initial audit**, not Gate A completion.
-- [x] Implement a dependency-free WebGPU scene byte decoder with SHA-256 checking and root-confined relative asset references; 9 Node tests pass without network. Does not yet modify the upstream GPU or viewer code.
+- [x] Implement a dependency-free WebGPU scene byte decoder with SHA-256 checking and root-confined relative asset references; 10 Node tests pass without network (including real pinned-source module import). Does not modify the upstream GPU or viewer code.
+- [x] Import the pinned, framework-free Steel WebGPU **core JS subset** (six files, unmodified), preserve both upstream Apache-2.0 license documents and independently verify source blob SHA-1/SHA-256. Public `src/webgpu.mjs` excludes the known network fetch entry points. This does **not** complete the upstream tree or native source imports.
 - [ ] Trace SolverSteel public API, dynamics, memory management, collisions, contacts, constraints, joints, actuation, determinism and numerical algorithms to the actual implementation and tests.
 - [ ] Audit WebGPU feature parity, unsupported model features, precision limits, file/URL loaders, shaders, browser capabilities and renderer/runtime coupling.
 - [ ] Review Newton/Warp Python/native build graph and exact JavaScript transitive dependency graph, not only declared top-level dependencies.
@@ -26,6 +27,7 @@ Gate **A**: code-level dependency diagram, reproducible benchmark protocol, issu
 ## Phase 1 — steelX as a standalone, offline engine (second)
 
 - [ ] Import complete pinned Newton, Steel WebGPU and compatible Warp source into `vendor/sources/`, preserving licenses/notices and SHA-256 inventories.
+- [x] Bootstrap the real WebGPU simulation source modules under `vendor/browser/steel-webgpu/src`, with byte-level provenance and a dependency-free module import smoke; **not** a browser GPU simulation proof.
 - [ ] Complete any additional source dependency vendors discovered by Phase 3; no source checkout/network operation during build.
 - [ ] Produce locked, licensed, per-target Python wheelhouses and JS package/build-tool bundles; eliminate network-backed installers and implicit downloads.
 - [ ] Provide deterministic CPU runtime, NVIDIA GPU runtime, and in-browser WebGPU runtime as separate locally installable targets, with common model/result semantics wherever physics implementations permit.

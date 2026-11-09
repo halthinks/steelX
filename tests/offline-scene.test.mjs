@@ -5,6 +5,21 @@ import { loadOfflineScene } from '../src/offline-scene.mjs';
 
 const encoder = new TextEncoder();
 
+test('actual vendored WebGPU core imports without a network call or external package', async () => {
+  const original = globalThis.fetch;
+  globalThis.fetch = () => { throw new Error('unexpected fetch in core module import'); };
+  try {
+    const api = await import('../src/webgpu.mjs');
+    assert.equal(typeof api.Sim.create, 'function');
+    assert.equal(typeof api.initDevice, 'function');
+    assert.equal(api.loadOfflineScene, loadOfflineScene);
+    assert.equal('loadScene' in api, false);
+    assert.equal('fetchMesh' in api, false);
+  } finally {
+    globalThis.fetch = original;
+  }
+});
+
 function bytes(data) {
   if (typeof data === 'string') return encoder.encode(data);
   if (data instanceof ArrayBuffer) return new Uint8Array(data);
