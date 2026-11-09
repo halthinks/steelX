@@ -1,0 +1,8 @@
+Steel
+
+Steel is developed by Skild AI in collaboration with NVIDIA and is available
+in Newton. Newton source files retain their original copyright and SPDX notices.
+
+The solver is linked from this package, not bundled here. The Apache-2.0 license
+applies to the project code and this documentation, not automatically to
+third-party assets, trademarks, launch footage, or music.
