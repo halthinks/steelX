@@ -13,6 +13,7 @@ We are actively accepting contributions from you and your agents, and are commit
 ## Code and demos
 
 - [Steel in Newton](https://github.com/newton-physics/newton/tree/main/newton/_src/solvers/steel) — the solver implementation.
+- [WebGPU implementation](https://github.com/skild-ai/steel-webgpu) — the browser implementation.
 - [Playground](https://www.skild.ai/steel/playground) — interactive demos.
 - [Blog](https://www.skild.ai/steel) — the launch write-up.
 
