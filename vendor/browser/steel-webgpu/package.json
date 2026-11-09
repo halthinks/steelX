@@ -1,0 +1,6 @@
+{
+  "name": "@steelx/steel-webgpu-core-vendored",
+  "private": true,
+  "type": "module",
+  "description": "Unmodified pinned Steel WebGPU JavaScript core; do not npm install"
+}

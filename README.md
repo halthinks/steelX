@@ -2,8 +2,9 @@
 
 > **Development status (2026-11-09):** The repository currently contains upstream
 > Steel launch documentation and media. A complete offline engine has **not** yet
-> been imported, built, or verified. The roadmap, vendor verification tools,
-> and a network-free WebGPU scene decoder are early implementation steps.
+> been imported, built, or verified. The engine-only WebGPU JavaScript core
+> is now **vendored and hash-verified**, with a network-free scene decoder;
+> the native Newton/Warp engines, viewer and release bundles remain unfinished.
 
 steelX's target is a **fully vendored, properly licensed, offline-capable physics
 engine** encompassing Newton's Steel solver, Warp dependencies, and the WebGPU
@@ -26,6 +27,10 @@ source, worker images or credentials to customers.
 - [Offline WebGPU scene decoder](src/offline-scene.mjs) — integrity-checks already
   supplied scene and mesh bytes without fetching them; the complete WebGPU
   simulation engine and viewer are **not** yet integrated.
+- [Pinned, byte-identical WebGPU core](vendor/browser/steel-webgpu/README.md)
+  — six importable upstream JavaScript files, retained Apache-2.0 licenses,
+  SHA-256/Git blob provenance and a fail-closed verifier. This is a **source
+  slice**, not a complete upstream checkout or offline browser distribution.
 
 ## Implemented, independently testable offline component
 
@@ -38,6 +43,7 @@ URLs and paths escaping the root fail closed. It never calls `fetch`.
 
 ```js
 import { loadOfflineScene } from './src/offline-scene.mjs';
+import { Sim, initDevice } from './src/webgpu.mjs';
 
 const scene = await loadOfflineScene({
   json: sceneJsonBytes,
@@ -50,14 +56,16 @@ const scene = await loadOfflineScene({
     ['shared/meshes/example.bin', expectedMeshSha256],
   ]),
 });
-// After the pinned upstream source is imported, pass scene to Sim.create(device, scene).
+const device = await initDevice(); // requires a supported WebGPU browser/GPU
+const simulation = await Sim.create(device, scene);
 ```
 
 The illustrative keys must match the actual mesh references in the supplied
 scene JSON; supplying bytes is the caller's responsibility. To run the
 dependency-free decoder tests: `node --test tests/offline-scene.test.mjs`.
-This validates a data path, **not** GPU physics, browser support, or overall
-offline-ready status.
+Run `python3 tools/verify_webgpu_slice.py` for upstream source/license byte
+verification. These checks validate source imports and data paths, **not** a
+completed browser simulation, browser support, or overall offline-ready status.
 
 ## Original Steel launch information
 
