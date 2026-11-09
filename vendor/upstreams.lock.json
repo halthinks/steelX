@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-11-09",
+  "sources": [
+    {
+      "id": "newton",
+      "repository": "https://github.com/newton-physics/newton",
+      "commit": "2134db9cd0354019061d36a2762f886d59e88306",
+      "path": "vendor/sources/newton",
+      "license": "Apache-2.0",
+      "license_file": "LICENSE.md",
+      "role": "native Steel solver and Newton integration"
+    },
+    {
+      "id": "steel-webgpu",
+      "repository": "https://github.com/skild-ai/steel-webgpu",
+      "commit": "f2f72c1e99aea7192cf2366eb918e630135afcf9",
+      "path": "vendor/sources/steel-webgpu",
+      "license": "Apache-2.0",
+      "license_file": "LICENSE.md",
+      "role": "browser WebGPU solver, renderer, importer and demos"
+    },
+    {
+      "id": "warp",
+      "repository": "https://github.com/NVIDIA/warp",
+      "commit": "f2eaed82d8d03b37bf1014cc975954067fefcf16",
+      "tag": "v1.18.0",
+      "path": "vendor/sources/warp",
+      "license": "Apache-2.0",
+      "license_file": "LICENSE.md",
+      "role": "native simulation compute substrate; binary redistribution separately audited"
+    }
+  ]
+}
