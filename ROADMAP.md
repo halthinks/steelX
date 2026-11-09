@@ -8,6 +8,8 @@ The defining product requirement is a **fully vendored, properly licensed, fully
 
 - [x] Identify canonical Newton Steel and Steel WebGPU source locations and repository licenses.
 - [x] Pin initial upstream source revisions (`vendor/upstreams.lock.json`).
+- [x] Record first code-backed offline/capability risks in [`docs/AUDIT_BASELINE.md`](docs/AUDIT_BASELINE.md); full audit remains open.
+- [x] Identify Newton's pinned external asset repositories (`vendor/asset-sources.lock.json`); review of individual asset licenses remains open.
 - [ ] Trace SolverSteel public API, dynamics, memory management, collisions, contacts, constraints, joints, actuation, determinism and numerical algorithms to the actual implementation and tests.
 - [ ] Audit WebGPU feature parity, unsupported model features, precision limits, file/URL loaders, shaders, browser capabilities and renderer/runtime coupling.
 - [ ] Review Newton/Warp Python/native build graph and exact JavaScript transitive dependency graph, not only declared top-level dependencies.

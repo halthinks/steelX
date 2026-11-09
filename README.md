@@ -13,6 +13,8 @@ package registry, hosted asset, or online license check.
 - [Engineering roadmap](ROADMAP.md) — code audit → standalone vendored engine → product integration.
 - [Offline and licensing contract](docs/OFFLINE_CONTRACT.md) — supported targets,
   dependency closure, redistribution rules, and strict release evidence.
+- [Source-level audit findings](docs/AUDIT_BASELINE.md) — observed network loaders,
+  CPU/GPU limitations, and the next code changes required.
 - [Pinned upstream sources](vendor/upstreams.lock.json) — exact revisions.
 - [Source importer](tools/vendor_sources.py) and [validator](tools/verify_vendor.py)
   — maintenance groundwork; they do **not** establish an offline release.
