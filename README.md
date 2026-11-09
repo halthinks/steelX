@@ -1,4 +1,23 @@
-# Steel
+# steelX — offline, vendored Steel physics engine
+
+> **Development status (2026-11-09):** The repository currently contains upstream
+> Steel launch documentation and media. A complete offline engine has **not** yet
+> been imported, built, or verified. The roadmap and vendor verification tools
+> are the first implementation step.
+
+steelX's target is a **fully vendored, properly licensed, offline-capable physics
+engine** encompassing Newton's Steel solver, Warp dependencies, and the WebGPU
+implementation. No customer build or simulation may require a cloud service,
+package registry, hosted asset, or online license check.
+
+- [Engineering roadmap](ROADMAP.md) — code audit → standalone vendored engine → product integration.
+- [Offline and licensing contract](docs/OFFLINE_CONTRACT.md) — supported targets,
+  dependency closure, redistribution rules, and strict release evidence.
+- [Pinned upstream sources](vendor/upstreams.lock.json) — exact revisions.
+- [Source importer](tools/vendor_sources.py) and [validator](tools/verify_vendor.py)
+  — maintenance groundwork; they do **not** establish an offline release.
+
+## Original Steel launch information
 
 [![Watch the Steel launch video](assets/launch-poster.jpg)](https://github.com/user-attachments/assets/be138f43-7852-40dc-a7ab-de1b2aa49cde)
 
