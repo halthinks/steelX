@@ -27,6 +27,9 @@ source, worker images or credentials to customers.
 - [Offline WebGPU scene decoder](src/offline-scene.mjs) — integrity-checks already
   supplied scene and mesh bytes without fetching them; the complete WebGPU
   simulation engine and viewer are **not** yet integrated.
+- [Local URDF/MJCF mesh resolver](src/offline-models.mjs) — SHA-256-bound STL/OBJ
+  bytes, root-confined model paths and explicit local ROS package roots;
+  browser DOM-based model-import integration still needs live testing.
 - [Pinned, byte-identical WebGPU core](vendor/browser/steel-webgpu/README.md)
   — six importable upstream JavaScript files, retained Apache-2.0 licenses,
   SHA-256/Git blob provenance and a fail-closed verifier. This is a **source
@@ -62,10 +65,16 @@ const simulation = await Sim.create(device, scene);
 
 The illustrative keys must match the actual mesh references in the supplied
 scene JSON; supplying bytes is the caller's responsibility. To run the
-dependency-free decoder tests: `node --test tests/offline-scene.test.mjs`.
+dependency-free browser-core tests: `node --test tests/*.test.mjs`.
 Run `python3 tools/verify_webgpu_slice.py` for upstream source/license byte
 verification. These checks validate source imports and data paths, **not** a
 completed browser simulation, browser support, or overall offline-ready status.
+
+For URDF/MJCF, use `loadOfflineURDF` or `loadOfflineMJCF` from
+`src/webgpu.mjs`, passing the robot text, a `SceneBuilder` and `{baseDir,
+files, integrity}` maps. They inject an audited mesh callback into the
+unmodified upstream importers. Only local, hashed STL/OBJ content is permitted;
+model URLs outside the bundle are rejected without attempting a download.
 
 ## Original Steel launch information
 

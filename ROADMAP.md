@@ -15,6 +15,7 @@ The defining product requirement is a **fully vendored, properly licensed, fully
 - [x] Trace the pinned CPU fallback and WebGPU data-loader/worker source; record concrete supported modes, downloader entry points, package/build dependencies and asset licenses in [`docs/SOURCE_AUDIT_2026-11-09.md`](docs/SOURCE_AUDIT_2026-11-09.md). This is a **bounded initial audit**, not Gate A completion.
 - [x] Implement a dependency-free WebGPU scene byte decoder with SHA-256 checking and root-confined relative asset references; 10 Node tests pass without network (including real pinned-source module import). Does not modify the upstream GPU or viewer code.
 - [x] Import the pinned, framework-free Steel WebGPU **core JS subset** (six files, unmodified), preserve both upstream Apache-2.0 license documents and independently verify source blob SHA-1/SHA-256. Public `src/webgpu.mjs` excludes the known network fetch entry points. This does **not** complete the upstream tree or native source imports.
+- [x] Supply source-hash-verified local OBJ/STL mesh callbacks to the unchanged URDF/MJCF importers, including explicit ROS package roots and rejection of remote/out-of-root URLs; 7 dependency-free Node tests validate the resolver and wrapper safety. Actual browser `DOMParser` import integration remains open.
 - [ ] Trace SolverSteel public API, dynamics, memory management, collisions, contacts, constraints, joints, actuation, determinism and numerical algorithms to the actual implementation and tests.
 - [ ] Audit WebGPU feature parity, unsupported model features, precision limits, file/URL loaders, shaders, browser capabilities and renderer/runtime coupling.
 - [ ] Review Newton/Warp Python/native build graph and exact JavaScript transitive dependency graph, not only declared top-level dependencies.
@@ -32,7 +33,7 @@ Gate **A**: code-level dependency diagram, reproducible benchmark protocol, issu
 - [ ] Produce locked, licensed, per-target Python wheelhouses and JS package/build-tool bundles; eliminate network-backed installers and implicit downloads.
 - [ ] Provide deterministic CPU runtime, NVIDIA GPU runtime, and in-browser WebGPU runtime as separate locally installable targets, with common model/result semantics wherever physics implementations permit.
 - [ ] Resolve all supported local model/asset imports without remote URI fetches; reject missing/out-of-root assets safely.
-- [ ] Feed the byte-decoded scenes into the **actual vendored WebGPU `Sim`** and replace both main-thread and worker viewer fetch paths; inject offline mesh resolvers into URDF and MJCF importers.
+- [ ] Feed the byte-decoded scenes into the **actual vendored WebGPU `Sim`** on real WebGPU hardware; replace both main-thread and worker viewer fetch paths; validate full browser URDF/MJCF model imports using the new local mesh resolver.
 - [ ] Define stable data interchange for model, controls, state, time step, diagnostics, contact and provenance metadata.
 - [ ] Add CLI/API and offline interactive viewer, with actual verified simulation examples and saved/replayable results.
 - [ ] Validate native and browser parity to documented tolerances. Track unsupported physics explicitly rather than silently approximating it.
